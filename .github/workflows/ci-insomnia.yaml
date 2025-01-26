@@ -23,7 +23,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v2
         with:
-          node-version: "14"
+          node-version: "20.17"
       - name: Install Inso CLI
         run: npm install -g insomnia-inso
 
