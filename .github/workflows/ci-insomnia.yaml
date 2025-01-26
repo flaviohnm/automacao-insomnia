@@ -21,14 +21,15 @@ jobs:
       - name: Checkout branch
         uses: actions/checkout@v4.1.6
       - name: Setup Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           node-version: 16.x
-      - name: Installing inso
-        run: npm install -g insomnia-inso
+      - uses: kong/setup-inso@v1
+        with:
+          inso-version: 2.4.0
       - name: Lint
-        run: inso lint spec "Comics" --ci
-      - name: Running Tests Suites
-        run: inso run test "Comics" --env "Produção" --ci
-      - name: Generating the config
-        run: inso generate config "Comics" --type declarative --ci
+        run: inso lint spec "Comics" --ci          
+
+      - name: Run Insomnia Tests
+        run: |
+          inso run test "Comics" --src ./insomnia/project.json --env "Produção" --verbose -- ci
