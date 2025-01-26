@@ -29,9 +29,7 @@ jobs:
           inso-version: 2.4.0
       - name: Lint
         run: inso lint spec "Comics" --ci          
-      # - name: Install Inso CLI
-      #   run: npm install --global insomnia-inso
 
       - name: Run Insomnia Tests
         run: |
-          inso run test "Comics" --src ./insomnia/project.json --env "Produção" --verbose -- cia
+          inso run test "Comics" --src ./insomnia/project.json --env "Produção" --verbose -- ci
