@@ -15,15 +15,17 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   Linux:
-    name: Testes com Insomnia Udemy
+    name: Execution of API testing with Insomnia.
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
         uses: actions/checkout@v4.1.6
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 16.x
+          
       - name: Install Inso CLI
         run: npm install -g insomnia-inso
 
