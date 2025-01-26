@@ -29,4 +29,4 @@ jobs:
 
       - name: Run Insomnia Tests
         run: |
-          inso run test "Comics" --src ./insomnia/project.json --env "Produção" --verbose
+          inso run test "Comics" --src ./insomnia/project.json --env "Desenvolvimento" --ci
