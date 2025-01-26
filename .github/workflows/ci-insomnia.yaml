@@ -24,9 +24,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 16.x
-      - uses: kong/setup-inso@v1
-        with:
-          inso-version: 2.4.0      
+      - name: Install Inso CLI
+        run: npm install -g insomnia-inso
+
       - name: Run Insomnia Tests
         run: |
-          inso run test "Comics" --src ./insomnia/project.json --env "Produção" --verbose -- ci
+          inso run test "Comics" --src ./insomnia/project.json --env "Produção" --verbose
